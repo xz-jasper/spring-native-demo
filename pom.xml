@@ -31,22 +31,30 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.graalvm.nativeimage</groupId>
-                <artifactId>native-image-maven-plugin</artifactId>
-                <version>21.2.0</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.5</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder:tiny</builder>
+                    </image>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.10.1</version>
+                <extensions>true</extensions>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>native-image</goal>
+                            <goal>compile-no-fork</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>my-native-app</imageName>
-                    <mainClass>org.example.GraalvmDemoApplication</mainClass>
-                    <buildArgs>
-                        <buildArg>--no-fallback</buildArg>
-                    </buildArgs>
+                    <imageName>my-custom-app-name</imageName>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,6 +1,6 @@
 target/
 .idea/
-
+logs/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -13,7 +13,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+*.log
 ### Eclipse ###
 .apt_generated
 .classpath
